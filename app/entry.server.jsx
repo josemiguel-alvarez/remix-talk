@@ -14,7 +14,7 @@ export default function handleRequest(
   );
 
   responseHeaders.set("Content-Type", "text/html");
-  responseHeaders.set("Cache-Control", "max-age=300");
+  responseHeaders.set("Cache-Control", "max-age=300"); // HTTP caching
 
   return new Response("<!DOCTYPE html>" + markup, {
     headers: responseHeaders,
