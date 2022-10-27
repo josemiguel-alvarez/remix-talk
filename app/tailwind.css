@@ -1165,11 +1165,6 @@ video {
   margin-right: auto;
 }
 
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -1198,10 +1193,6 @@ video {
   border-width: 2px;
 }
 
-.border-b-2 {
-  border-bottom-width: 2px;
-}
-
 .bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
@@ -1221,17 +1212,8 @@ video {
   padding-right: 1rem;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .text-right {
   text-align: right;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .text-white {

@@ -2,9 +2,9 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { getNotes } from "~/utils/notes.server";
 
-export const loader = async () => {
+export const loader = () => {
   const data = {
-    posts: getNotes(),
+    notes: getNotes(),
   };
 
   return json(data, {
@@ -14,7 +14,7 @@ export const loader = async () => {
   });
 };
 
-export default function BlogIndex() {
+export default function NotesIndex() {
   const data = useLoaderData();
 
   return (
@@ -22,10 +22,10 @@ export default function BlogIndex() {
       <h1>Notes</h1>
       <p>Here is the list of notes:</p>
       <ul>
-        {data.posts.map((post) => (
-          <li key={post.slug}>
-            <Link to={post.slug} prefetch="intent">
-              {post.title}
+        {data.notes.map((note) => (
+          <li key={note.slug}>
+            <Link to={note.slug} prefetch="intent">
+              {note.title}
             </Link>
           </li>
         ))}
