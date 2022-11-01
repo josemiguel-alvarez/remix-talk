@@ -1,6 +1,6 @@
 import { redirect } from "@remix-run/node";
 import { Form } from "@remix-run/react";
-import { addNote } from "~/utils/notes.server";
+import { addNote } from "app/utils/notes.server";
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -8,7 +8,6 @@ export async function action({ request }) {
   const content = formData.get("content");
 
   addNote({
-    slug: title.toLowerCase().replace(/\s/g, "-"),
     title,
     content,
   });
@@ -16,17 +15,17 @@ export async function action({ request }) {
   return redirect("/notes");
 }
 
-export default function New() {
+export default function NewNote() {
   return (
     <div>
-      <h3>New note</h3>
+      <h1>Add new note</h1>
       <Form method="post">
-        <p>
+        <div>
           <label htmlFor="title">Title:</label>
           <br />
           <input type="text" name="title" className="border-2 rounded" />
-        </p>
-        <p>
+        </div>
+        <div>
           <label htmlFor="content">Content:</label>
           <br />
           <textarea
@@ -35,15 +34,15 @@ export default function New() {
             name="content"
             className="border-2 rounded w-full"
           />
-        </p>
-        <p className="text-right">
+        </div>
+        <div className="text-right">
           <button
             type="submit"
             className="rounded bg-blue-500 py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400 disabled:bg-blue-300"
           >
             Create note
           </button>
-        </p>
+        </div>
       </Form>
     </div>
   );

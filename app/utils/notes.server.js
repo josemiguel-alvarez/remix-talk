@@ -10,8 +10,3 @@ export const addNote = (note) => {
   notes.push(note);
   fs.writeFileSync("./notes.json", JSON.stringify(notes));
 };
-
-export const findNote = (slug) => {
-  const notes = getNotes();
-  return notes.find((note) => note.slug === slug);
-};

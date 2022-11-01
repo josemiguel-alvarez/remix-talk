@@ -1,20 +1,20 @@
 {
-  "include": ["**/*.js", "**/*.jsx"],
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2019"],
-    "isolatedModules": true,
-    "esModuleInterop": true,
+    "module": "ES6",
     "jsx": "react-jsx",
+    "checkJs": false,
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "target": "ES2019",
-    "strict": true,
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "paths": {
-      "~/*": ["./app/*"]
-    },
-    "noEmit": true
-  }
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": false,
+    "lib": ["DOM", "DOM.Iterable", "ES2019"],
+    "strict": true,
+    "target": "ES2019"
+  },
+  "exclude": ["node_modules", "**/node_modules/*"],
+  "include": ["app/**/*"]
 }

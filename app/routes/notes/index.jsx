@@ -1,36 +1,24 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { getNotes } from "app/utils/notes.server";
 import { json } from "@remix-run/node";
-import { getNotes } from "~/utils/notes.server";
+import { useLoaderData } from "@remix-run/react";
 
-export const loader = () => {
-  const data = {
-    notes: getNotes(),
-  };
-
-  return json(data, {
-    headers: {
-      "Cache-Control": "max-age=300",
-    },
-  });
-};
+export function loader() {
+  const notes = getNotes();
+  return json(notes);
+}
 
 export default function NotesIndex() {
-  const data = useLoaderData();
+  const notes = useLoaderData();
 
   return (
     <div>
       <h1>Notes</h1>
-      <p>Here is the list of notes:</p>
-      <ul>
-        {data.notes.map((note) => (
-          <li key={note.slug}>
-            <Link to={note.slug} prefetch="intent">
-              {note.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <Link to="/notes/new">Add new note</Link>
+      {notes.map((note) => (
+        <div key={note.title}>
+          <h2>{note.title}</h2>
+          <p>{note.content}</p>
+        </div>
+      ))}
     </div>
   );
 }

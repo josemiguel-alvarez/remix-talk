@@ -8,7 +8,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import styles from "./tailwind.css"; // CSS
+import styles from "./tailwind.css";
 
 export const meta = () => ({
   charset: "utf-8",
@@ -26,15 +26,12 @@ export default function App() {
         <Links />
       </head>
       <body className="prose mx-auto p-4">
-        <div className="flex gap-4 mb-4">
-          <Link to="/" prefetch="intent">
+        <div>
+          <Link to="/" className="mr-4">
             Home
           </Link>
           <Link to="/notes" prefetch="intent">
             Notes
-          </Link>
-          <Link to="/about" prefetch="intent">
-            About
           </Link>
         </div>
         <Outlet />
